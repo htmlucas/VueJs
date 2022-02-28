@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+    <style>
+        .azul{
+            background-color: blue;
+        }
+        .verde{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        <input type="text" v-on:keyup="imprimirTexto">
+        <button @click="mensagemAlerta()">Botão</button>
+    </div>
+    
+    
+    <script>
+
+        const vm = new Vue({ // vm = viewModel     
+            el:'#app', // # = id | . = classe
+            data:{},
+            methods:{
+                imprimirTexto(){
+                    console.log('text')
+                },
+                mensagemAlerta(){
+                    alert('botao clicado')
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>

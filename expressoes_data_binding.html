@@ -7,18 +7,19 @@
     <script src="./vue.js"></script>
     <title>Document</title>
     <style>
-        .vermelho{
-            color:red;
+        .azul{
+            background-color: blue;
+        }
+        .verde{
+            background-color: green;
         }
     </style>
 </head>
 <body>
     
     <div id="app">
-        <a :href="site">Sitee</a>
-        <p :class="cor">Entendendo a v-bind</p>
-        <input type="text" name="" id="" :value="valor" :placeholder="instrucao">
-        <input type="checkbox" name="" id="" :checked="check">
+        {{ mensagem.substr(0,3)}} 
+        <input type="text" :value="2+2" :class=" teste ? 'verde' : estilo">
 
     </div>
     
@@ -28,11 +29,9 @@
         const vm = new Vue({ // vm = viewModel     
             el:'#app', // # = id | . = classe
             data:{
-                site:'https://google.com.br',
-                cor: 'vermelho',
-                instrucao: 'PlaceHolder - Diretiva V-bind',
-                valor: 'Entendendo V-bind',
-                check: true
+                mensagem: 'expressao',
+                estilo:'azul',
+                teste: true
             },
             methods:{}
         })
