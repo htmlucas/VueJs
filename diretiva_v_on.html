@@ -18,7 +18,7 @@
 <body>
     
     <div id="app">
-        <input type="text" v-on:keyup="imprimirTexto">
+        <input type="text" v-on:keyup="imprimirTexto('Enviando Parametro')">
         <button @click="mensagemAlerta()">Botão</button>
     </div>
     
@@ -29,8 +29,8 @@
             el:'#app', // # = id | . = classe
             data:{},
             methods:{
-                imprimirTexto(){
-                    console.log('text')
+                imprimirTexto(t){
+                    console.log(t)
                 },
                 mensagemAlerta(){
                     alert('botao clicado')
