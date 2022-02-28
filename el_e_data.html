@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+        {{mensagem}} <br> <!-- Double Mustache "{{}}" serve para imprimir as variaveis javascripts no HTML -->
+        Valor Total: {{valorTotal}}<br>
+        Logado: {{logado}}<br>
+        Hobbies : {{ hobbies[1] }}<br>
+        Perfil: {{perfil.nome}}, {{perfil.cursos[1].nome}}<br>
+    </div>
+    <script>
+
+        const vm = new Vue({ // vm = viewModel     
+            el:'#app', // # = id | . = classe
+            data:{ // variaveis ou atributos reativos
+                mensagem: 'Primerio template controlado pelo Vue', // string
+                valorTotal: 150.47,
+                logado: false,
+                hobbies: [
+                    'Tocar Violao',
+                    'Andar de bike e correr',
+                    'Jogar'
+                ],
+                perfil: {
+                    nome: 'lucas martins',
+                    idade: 24,
+                    cursos:[
+                        { 
+                            nome: 'Laravel',
+                            cargaHoraria: '50 horas'
+                        },
+                        { 
+                            nome: 'VueJS', 
+                            cargaHoraria: '50 horas'
+                        }
+                    ]
+                }
+            } 
+        })
+
+    </script>
+</body>
+</html>
