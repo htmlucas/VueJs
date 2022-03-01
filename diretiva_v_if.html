@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+    <style>
+        .branco{
+            background-color: white;
+        }
+        .verde{
+            background-color: green;
+        }
+        .azul{
+            background-color: blue;;
+        }
+        .vermelho{
+            background-color: red;;
+        }
+        .borda{
+            border:1px solid;
+        }
+        .div-principal{
+            width:200px;
+            height:200px;
+        }
+        .div-comum{
+            width:200px;
+            height:200px;
+            display:inline-block;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        <!-- V-if Simples -->
+        <button @click="exibirsaldo = !exibirsaldo">
+            <span v-if="!exibirsaldo"> Exibir Saldo</span>  
+            <span v-if="exibirsaldo"> Ocultar Saldo</span>   
+        </button>
+        <p>Saldo: <span v-if="exibirsaldo"> R$ {{ saldo }}</span></p>
+        <hr>
+
+        <!-- V-if e v-else  -->
+        Idade: <input type="text" id="inputIdade" @blur="setIdade()">
+        <p v-if="idade < 18">Menor de Idade</p>
+        <p v-else>Maior de Idade</p>
+        {{idade}}
+        <hr>
+        <!-- V-if e v-else-if e v-else  -->
+
+        Nota: <input type="text" id="inputNota" @blur="setNota()">
+        <p v-if="nota == '' ">Digite a nota do aluno</p>
+        <p v-else-if="nota >= 7 && nota <= 10 ">Aluno Aprovado</p>
+        <p v-else-if="nota >= 5 && nota < 7 ">Aluno em Recuperacao</p>
+        <p v-else-if="nota >= 0 && nota < 5 ">Aluno Reprovado</p>
+        <p v-else>A nota informado é inválida</p>
+        {{ nota }}
+
+    </div>
+    
+    
+    <script>
+
+        const vm = new Vue({ // vm = viewModel     
+            el:'#app', // # = id | . = classe
+            data:{
+                saldo: 456.09,
+                exibirsaldo: false,
+                idade: 0,
+                nota: 0
+            },
+            methods:{
+                setIdade(){
+                    this.idade = inputIdade.value
+                    
+                },
+                setNota(){
+                    this.nota = inputNota.value
+                    
+                }
+             }
+        })
+
+    </script>
+</body>
+</html>
