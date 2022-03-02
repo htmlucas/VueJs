@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+    <style>
+        .branco{
+            background-color: white;
+        }
+        .verde{
+            background-color: green;
+        }
+        .azul{
+            background-color: blue;;
+        }
+        .vermelho{
+            background-color: red;;
+        }
+        .borda{
+            border:1px solid;
+        }
+        .div-principal{
+            width:200px;
+            height:200px;
+        }
+        .div-comum{
+            width:200px;
+            height:200px;
+            display:inline-block;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+    <ul>
+        <li v-for="p in publicacoes" style="border:solid 1px; margin-bottom:10px" :key="p.id" >
+            {{p.publicacao}}
+            <hr>
+            <input type="text">
+        </li>
+    </ul>
+    <button @click="misturarArray()">Misturar Publicacoes</button>
+    </div>
+    
+    
+    <script>
+
+        const vm = new Vue({ // vm = viewModel     
+            el:'#app', // # = id | . = classe
+            data:{
+               publicacoes: [
+                   {id:1,publicacao:'publicacoes 1'},
+                   {id:2,publicacao:'publicacoes 2'},
+                   {id:3,publicacao:'publicacoes 3'},
+                ]
+               },
+            methods:{
+                misturarArray(){
+                    let misturado = []
+
+                    misturado[0] = this.publicacoes[2]
+                    misturado[1] = this.publicacoes[0]
+                    misturado[2] = this.publicacoes[1]
+
+                    this.publicacoes = misturado
+                }
+             }
+        })
+
+    </script>
+</body>
+</html>
