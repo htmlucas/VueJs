@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+    <style>
+        .branco{
+            background-color: white;
+        }
+        .verde{
+            background-color: green;
+        }
+        .azul{
+            background-color: blue;;
+        }
+        .vermelho{
+            background-color: red;;
+        }
+        .borda{
+            border:1px solid;
+        }
+        .div-principal{
+            width:200px;
+            height:200px;
+        }
+        .div-comum{
+            width:200px;
+            height:200px;
+            display:inline-block;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        {{paciente}}
+        <br>
+       <input type="text" :value="paciente" @keyup="paciente = $event.target.value">
+       <br>
+       <input type="text" v-model="paciente">
+       <hr>
+       <input type="radio" value="f" v-model="sexo">Feminino
+       <input type="radio" value="m" v-model="sexo">Masculino
+       <br> {{ sexo}}
+       <hr>
+       <select v-model="plano">
+           <option value="" disabled>Selecione um plano</option>
+           <option value="1">Basico 1</option>
+           <option value="2">Basico 2</option>
+           <option value="3">Master</option>
+       </select>
+       <hr>
+       <input type="checkbox" value="100" v-model="doencas">Asma
+       <input type="checkbox" value="101" v-model="doencas">Diabetes
+       <input type="checkbox" value="102" v-model="doencas">Rinite
+       <br>{{doencas}}
+       <hr>
+       <textarea v-model="diagnostico" cols="30" rows="10"></textarea>
+       <br>{{diagnostico}}
+    </div>
+    
+    
+    <script>
+
+        const vm = new Vue({ // vm = viewModel     
+            el:'#app', // # = id | . = classe
+            data:{
+               paciente: 'Lucas Martins',
+               sexo: '',
+               plano: '',
+               doencas:[],
+               diagnostico:''
+               },
+            methods:{
+                
+               
+             },
+             computed:{
+                
+             }
+        })
+
+    </script>
+</body>
+</html>
